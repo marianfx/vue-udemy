@@ -1,13 +1,33 @@
-<!-- development version, includes helpful console warnings -->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<!doctype html>
 
-<!-- production version, optimized for size and speed -->
-<!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
 
-<!-- The import of our JS -->
-<script src="./hello-world.js"></script>
+  <title>Vue JS Tutorial</title>
+  <meta name="description" content="Vue JS Tutorial">
+  <meta name="author" content="Marian FX">
 
-<div id="app">
-    <input type="text" v-on:input="changeTitle"> <!-- Method name, not call -->
-  <p> {{ title }} </p>  
-</div>
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-on:input="changeTitle"> <!-- Method name, not call -->
+        <p> {{ title }} </p>  
+    </div>
+
+    <!-- development version, includes helpful console warnings -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    
+    <!-- production version, optimized for size and speed -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+    <!-- LOCAL SCRIPT -->
+    <script src="./vue.js"></script>
+    
+    <!-- The import of our JS -->
+    <script src="./hello-world.js"></script>
+</body>
+</html>
