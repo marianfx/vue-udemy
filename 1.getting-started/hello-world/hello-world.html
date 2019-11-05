@@ -20,7 +20,8 @@
         <p> {{ sayHello() }} 
           <!-- - <a href="{{ link }}">Google!</a> THIS DOES NOT WORK-->
           - <a v-bind:href="link">Google!</a> <!-- This works, thanks to vue-bind, does not interpret as string-->
-        </p>  
+        </p> 
+        <p v-html="htmlLink"></p>
     </div>
 
     <!-- development version, includes helpful console warnings -->
