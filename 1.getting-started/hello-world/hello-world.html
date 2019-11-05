@@ -46,7 +46,9 @@
             :class="divClasses"></div>
         <!-- <div class="demo" :class="color"></div> -->
         <div class="demo" :class="[color, { 'red': attachRed }]"></div>
-        <div class="demo"></div>
+
+        <div class="demo" :style="{ 'background-color': color }"></div>
+        <!-- Would work with camel case, backgroundColor; also works with object binding-->
         <hr>
         <input type="text" v-model="color">
     </div>
