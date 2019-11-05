@@ -12,6 +12,7 @@ new Vue({
     result: '',
 
     attachRed: false,
+    color: 'green'
   },
   computed: { // like properties, with getters/setters
     output: function() {
