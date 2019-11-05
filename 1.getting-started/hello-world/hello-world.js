@@ -16,6 +16,14 @@ new Vue({
       return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
     }
   },
+  watch: { 
+    // watch for changes; the names inside must be existing variable names
+    // useful to do async stuff or custom tasks; in computed, can't execute async tasks
+    counter: function(newValue) {
+      var me = this;
+      setTimeout(function() { me.counter = 0; }, 2000);
+    }
+  },
   methods: {
   	changeTitle: function(event) {
     	this.title = event.target.value; 
