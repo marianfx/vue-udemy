@@ -15,7 +15,10 @@
 <body>
     <div id="app">
         <input type="text" v-on:input="changeTitle"> <!-- Method name, not call -->
-        <p> {{ title }} </p>  
+        <p> {{ sayHello() }} 
+          <!-- - <a href="{{ link }}">Google!</a> THIS DOES NOT WORK-->
+          - <a v-bind:href="link">Google!</a> <!-- This works, thanks to vue-bind, does not interpret as string-->
+        </p>  
     </div>
 
     <!-- development version, includes helpful console warnings -->
