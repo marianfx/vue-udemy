@@ -15,8 +15,8 @@
 <body>
     <div id="app">
         <!-- v-once renders only the initial value of the property; normally, at each change it would be re-rendered -->
-        <h1 v-once> {{ title }}</h1>
-        <input type="text" v-on:input="changeTitle"> <!-- Method name, not call -->
+        <h1> {{ "Hello, " + name }}</h1>
+        <input type="text" v-model="name"> <!-- Method name, not call -->
         <p> {{ sayHello() }} 
           <!-- - <a href="{{ link }}">Google!</a> THIS DOES NOT WORK-->
           - <a v-bind:href="link">Google!</a> <!-- This works, thanks to vue-bind, does not interpret as string-->

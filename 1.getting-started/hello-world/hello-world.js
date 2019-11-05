@@ -2,6 +2,7 @@ new Vue({
 	el: '#app',
   data: { // available inside id='app'
     title: "Hello, world",
+    name: "Alex",
     link: "http://www.google.com",
     htmlLink: "<a href='http://www.google.com'>Google!</a>",
 
