@@ -8,7 +8,13 @@ new Vue({
 
     counter: 0,
     x: 0,
-    y: 0
+    y: 0,
+    result: ''
+  },
+  computed: { // like properties, with getters/setters
+    output: function() {
+      return this.counter > 5 ? "Greater than 5" : "Smaller than 5";
+    }
   },
   methods: {
   	changeTitle: function(event) {
