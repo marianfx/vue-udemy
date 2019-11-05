@@ -22,7 +22,9 @@
           - <a v-bind:href="link">Google!</a> <!-- This works, thanks to vue-bind, does not interpret as string-->
         </p> 
         <p v-html="htmlLink"></p>
+
         <button v-on:click="increase(2, $event)">Click me!</button>
+        <button v-on:click="counter++">Click me 2!</button> <!-- I can use simple JS statements, as in Angular-->
         <p> {{ counter }} </p>
         <p v-on:mousemove="updateCoordinates">
           Coordinates: {{ x }} / {{ y }} 
