@@ -5,7 +5,9 @@ new Vue({
     link: "http://www.google.com",
     htmlLink: "<a href='http://www.google.com'>Google!</a>",
 
-    counter: 0
+    counter: 0,
+    x: 0,
+    y: 0
   },
   methods: {
   	changeTitle: function(event) {
@@ -22,6 +24,10 @@ new Vue({
     },
     increase: function() {
       this.counter++;
+    },
+    updateCoordinates: function(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
     }
   }
 })
