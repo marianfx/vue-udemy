@@ -22,9 +22,14 @@
           - <a v-bind:href="link">Google!</a> <!-- This works, thanks to vue-bind, does not interpret as string-->
         </p> 
         <p v-html="htmlLink"></p>
-        <button v-on:click="increase">Click me!</button>
+        <button v-on:click="increase(2, $event)">Click me!</button>
         <p> {{ counter }} </p>
-        <p v-on:mousemove="updateCoordinates">Coordinates: {{ x }} / {{ y }} </p>
+        <p v-on:mousemove="updateCoordinates">
+          Coordinates: {{ x }} / {{ y }} 
+          <!-- This is how we call the event propagation stop, the long wah -->
+          <!-- <span v-on:mousemove="cancelMouseMove">DEAD SPOT</span> -->
+          <span v-on:mousemove.stop="">DEAD SPOT</span> <!-- This is the clever way to do it, with a MODIFIER -->
+        </p>
     </div>
 
     <!-- development version, includes helpful console warnings -->

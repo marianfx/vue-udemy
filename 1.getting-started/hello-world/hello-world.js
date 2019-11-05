@@ -22,12 +22,16 @@ new Vue({
       this.title = "Just hello";
       return this.title; // vue also does a proxy so i can do this.
     },
-    increase: function() {
-      this.counter++;
+    increase: function(step, event) {
+      this.counter += step;
     },
     updateCoordinates: function(event) {
       this.x = event.clientX;
       this.y = event.clientY;
-    }
+    },
+    // this is how we stop event propagation
+    // cancelMouseMove: function(event) {
+    //   event.stopPropagation(); // does not call the event of the father etc.
+    // }
   }
 })
