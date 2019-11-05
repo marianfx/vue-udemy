@@ -14,6 +14,7 @@ new Vue({
       // return "Hello!";
       // return title; // this would not work
       // return this.data.title; // this is the VUE instance => has access
+      this.title = "Just hello";
       return this.title; // vue also does a proxy so i can do this.
     }
   }
