@@ -19,19 +19,19 @@
         <input type="text" v-model="name"> <!-- Method name, not call -->
         <p> {{ sayHello() }} 
           <!-- - <a href="{{ link }}">Google!</a> THIS DOES NOT WORK-->
-          - <a v-bind:href="link">Google!</a> <!-- This works, thanks to vue-bind, does not interpret as string-->
+          - <a :href="link">Google!</a> <!-- This works, thanks to vue-bind, does not interpret as string-->
         </p> 
         <p v-html="htmlLink"></p>
 
         <button v-on:click="increase(2, $event)">Click me!</button>
 
-        <button v-on:click="counter++">Increase counter!</button> <!-- I can use simple JS statements, as in Angular-->
-        <button v-on:click="counter--">Decrease counter!</button>
+        <button @click="counter++">Increase counter!</button> <!-- I can use simple JS statements, as in Angular-->
+        <button @click="counter--">Decrease counter!</button>
 
         <p> {{ counter }} (Result: {{ output }}) </p> 
         <!-- Computed props are used just like other variables -->
         <!-- it does not render every time, but only when the properties they depend on change -->
-        
+
         <p v-on:mousemove="updateCoordinates">
           Coordinates: {{ x }} / {{ y }} 
           <!-- This is how we call the event propagation stop, the long wah -->
