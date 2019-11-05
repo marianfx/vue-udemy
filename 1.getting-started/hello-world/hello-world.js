@@ -32,6 +32,9 @@ new Vue({
     // this is how we stop event propagation
     // cancelMouseMove: function(event) {
     //   event.stopPropagation(); // does not call the event of the father etc.
-    // }
+    // },
+    alertMe: function() {
+      alert("This is an alert!");
+    }
   }
 })
