@@ -66,9 +66,10 @@
         <button @click="show = !show">Switch!</button>
 
         <hr>
-        <ul> 
-          <li v-for="(ingredient, i) in ingredients"> {{ ingredient }} ({{ i + 1 }})</li>
-        </ul>
+        <template v-for="(ingredient, i) in ingredients">
+          <h2>{{ingredient}}</h2>
+          <p>{{i}}</p>
+        </template>
     </div>
 
     <!-- development version, includes helpful console warnings -->
