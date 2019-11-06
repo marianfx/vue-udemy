@@ -25,7 +25,7 @@ var vm1 = new Vue({
   }
 });
 
-setTimeout(() => { vm1.title = "Changed by timer!"}, 3000);
+// setTimeout(() => { vm1.title = "Changed by timer!"}, 3000);
 
 var vm2 = new Vue({
   el: "#app2",
@@ -38,3 +38,9 @@ var vm2 = new Vue({
     }
   }
 });
+
+// $el is the reference to the exact ElementRef DOM element
+console.log(vm2.$el);
+
+// $data is the exact data passed inside the constructor
+console.log(vm2.$data);
