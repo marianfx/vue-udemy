@@ -1,0 +1,36 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Vue JS Tutorial</title>
+  <meta name="description" content="Vue JS Tutorial">
+  <meta name="author" content="Marian FX">
+
+  <link rel="stylesheet" href="hello-world.css">
+
+</head>
+
+<body>
+  <div id="app">
+    <h1 ref="heading">{{ title }}</h1>
+    <button v-on:click="show">Show Paragraph</button>
+    <p v-if="showParagraph">This is not always visible</p>
+  </div>
+
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- production version, optimized for size and speed -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+  <!-- LOCAL SCRIPT -->
+  <!-- <script src="./vue.js"></script> -->
+
+  <!-- The import of our JS -->
+  <script src="./app.js"></script>
+</body>
+
+</html>
