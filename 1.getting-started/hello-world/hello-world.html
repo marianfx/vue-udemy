@@ -70,6 +70,13 @@
           <h2>{{ingredient}}</h2>
           <p>{{i}}</p>
         </template>
+
+        <hr>
+        <ul>
+          <li v-for="person of persons">
+            <div v-for="(value, prop, index) in person"> ({{ prop }} / {{ index }}): {{ value }}</div>  
+          </li>
+        </ul>
     </div>
 
     <!-- development version, includes helpful console warnings -->
