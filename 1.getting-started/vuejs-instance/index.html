@@ -12,21 +12,20 @@
 </head>
 
 <body>
-    <!-- development version, includes helpful console warnings -->
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  
-    <!-- production version, optimized for size and speed -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
-  
-    <!-- LOCAL SCRIPT -->
-    <!-- <script src="./vue.js"></script> -->
+  <!-- development version, includes helpful console warnings -->
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+  <!-- production version, optimized for size and speed -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/vue"></script> -->
+
+  <!-- LOCAL SCRIPT -->
+  <!-- <script src="./vue.js"></script> -->
 
   <div id="app1">
     <h1 ref="heading">
       {{ title }}
     </h1>
     <button v-on:click="show" ref="showButton">Show Paragraph</button>
-
     <p v-if="showParagraph">This is not always visible</p>
   </div>
 
@@ -35,11 +34,12 @@
     <button v-on:click="show">Show Paragraph</button>
     <p v-if="showParagraph">This is not always visible</p>
     <button @click="onChange"> Change something in 1!</button>
+    
+    <app-hello></app-hello>
+    <app-hello></app-hello>
   </div>
-  
+
   <div id="app3">
-    <app-hello></app-hello>
-    <app-hello></app-hello>
   </div>
   <!-- The import of our JS -->
   <script src="./app.js"></script>

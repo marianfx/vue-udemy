@@ -1,3 +1,8 @@
+// the order matters; if I don't specify this before the initialization of the instance, it doesn't work
+Vue.component('app-hello', {
+  template: '<h1>Hello!</h1>'
+});
+
 var vm1 = new Vue({
   el: '#app1',
   data: {
@@ -55,16 +60,15 @@ console.log(vm2.$data);
 console.log(vm1.$refs);
 
 // change manually some value
-setTimeout(() => {
-vm1.$refs.heading.innerText = 'Changed manually'; }, 1000);
+// setTimeout(() => { vm1.$refs.heading.innerText = 'Changed manually'; }, 1000);
 
 
 var vm3 = new Vue({
-  el: 'app-hello', // this would only replace one appearance of the tag
+  // el: 'app-hello', // this would only replace one appearance of the tag
   template: `<h1>Hello!</h1>`
 });
-vm3.$mount("#app3");
 
+// vm3.$mount("#app3");
 // alternative syntax
 // vm3.$mount(); // create it virtually
 // document.getElementById("app3").appendChild(vm3.$el);
