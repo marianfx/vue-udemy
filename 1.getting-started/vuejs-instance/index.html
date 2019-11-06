@@ -27,6 +27,8 @@
     </h1>
     <button v-on:click="show" ref="showButton">Show Paragraph</button>
     <p v-if="showParagraph">This is not always visible</p>
+    <button @click="title = 'Custom title'">Trigger update</button>
+    <button @click="destroy">Trigger destroy</button>
   </div>
 
   <div id="app2">

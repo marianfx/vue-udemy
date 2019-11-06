@@ -3,6 +3,19 @@ Vue.component('app-hello', {
   template: '<h1>Hello!</h1>'
 });
 
+
+/**
+ * VUE Lifecicle
+ * new Vue() [constructor]
+ * beforeCreate() -> initialize data and events ->
+ * created() -> compile template OR 'el' template
+ * beforeMount() -> real HTML code exists (but behind scenes, in VDOM)
+ * mount to DOM -> 
+ *    Starts a cicle of updated() + beforeUpdate() that repeats itself for each change
+ * beforeDestroy() -----> component destroyed
+ */
+
+
 var vm1 = new Vue({
   el: '#app1',
   data: {
@@ -17,6 +30,9 @@ var vm1 = new Vue({
     },
     updateTitle: function(title) {
       this.title = title;
+    },
+    destroy: function() {
+      this.$destroy();
     }
   },
   computed: {
@@ -29,6 +45,31 @@ var vm1 = new Vue({
       // alert('Title changed, new value: ' + value);
       console.log("Title changed: " + this.title);
     }
+  },
+
+  beforeCreate: function() {
+    console.log("Initializing DATA and EVENTS; preparint to create [beforeCreate]");
+  },
+  created: function() {
+    console.log("Instance created.");
+  },
+  beforeMount: function() {
+    console.log("Component rendered, but not mounted.");
+  },
+  mounted: function() {
+    console.log("Component has been mounted");
+  },
+  beforeUpdate: function() {
+    console.log("Beginning update (changes triggered) [beforeUpdate]");    
+  },
+  updated: function() {
+    console.log("Component updated");    
+  },
+  beforeDestroy: function() {
+    console.log("Component preparing to be destroyed");    
+  },
+  destroyed: function() {
+    console.log("Component gone");    
   }
 });
 
