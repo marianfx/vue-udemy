@@ -20,10 +20,11 @@
     <p v-if="showParagraph">This is not always visible</p>
   </div>
   <div id="app2">
-      <h1 ref="heading">{{ title }}</h1>
-      <button v-on:click="show">Show Paragraph</button>
-      <p v-if="showParagraph">This is not always visible</p>
-    </div>
+    <h1 ref="heading">{{ title }}</h1>
+    <button v-on:click="show">Show Paragraph</button>
+    <p v-if="showParagraph">This is not always visible</p>
+    <button @click="onChange"> Change something in 1!</button>
+  </div>
 
   <!-- development version, includes helpful console warnings -->
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
