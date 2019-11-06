@@ -60,6 +60,7 @@ vm1.$refs.heading.innerText = 'Changed manually'; }, 1000);
 
 
 var vm3 = new Vue({
+  el: 'app-hello', // this would only replace one appearance of the tag
   template: `<h1>Hello!</h1>`
 });
 vm3.$mount("#app3");
