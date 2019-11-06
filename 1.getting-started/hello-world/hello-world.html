@@ -70,10 +70,13 @@
           <h2>{{ingredient}}</h2>
           <p>{{i}}</p>
         </template>
+        <button @click="ingredients.push('spices')">Add new</button>
 
         <hr>
         <ul>
-          <li v-for="person of persons">
+          <!-- By default, Vue uses the index in the array to identify items (does not render the whole list on changes; this can cause tricky behavior sometimes
+          As a result, you can specify the 'key' that uniquely identifies items.-->
+          <li v-for="person of persons" :key="person.name">
             <div v-for="(value, prop, index) in person"> ({{ prop }} / {{ index }}): {{ value }}</div>  
           </li>
         </ul>
