@@ -26,6 +26,10 @@ var vm1 = new Vue({
     }
   }
 });
+
+// if I don't want to display a component, don't set 'el' value, then call mount
+// vm1.$mount('#app1');
+
 // DOES not override string interpolation, but also does not update behind code (changes directly in the DOM); useful to display things differently
 setTimeout(function() { /* vm1.title = "Changed by timer!"; */ vm1.show(); }, 3000);
 
@@ -53,3 +57,13 @@ console.log(vm1.$refs);
 // change manually some value
 setTimeout(() => {
 vm1.$refs.heading.innerText = 'Changed manually'; }, 1000);
+
+
+var vm3 = new Vue({
+  template: `<h1>Hello!</h1>`
+});
+vm3.$mount("#app3");
+
+// alternative syntax
+// vm3.$mount(); // create it virtually
+// document.getElementById("app3").appendChild(vm3.$el);
