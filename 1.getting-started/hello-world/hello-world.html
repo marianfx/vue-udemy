@@ -61,8 +61,14 @@
           <p> Inside the template</p>
         </template>
 
-        <p>Do you see me?</p>
+        <!-- v-show does not remove the element completely from DOM (si it can be still accessed); instead puts it display:none-->
+        <p v-show="show">Do you see me?</p>
         <button @click="show = !show">Switch!</button>
+
+        <hr>
+        <ul> 
+          <li v-for="(ingredient, i) in ingredients"> {{ ingredient }} ({{ i + 1 }})</li>
+        </ul>
     </div>
 
     <!-- development version, includes helpful console warnings -->
