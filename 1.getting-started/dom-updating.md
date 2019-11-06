@@ -1,0 +1,3 @@
+### VueJS DOM Updating
+Each property has a watch around each property (through getters + setters). It doesn't update anything on each property change.
+It keeps everything in a Virtual DOM, and checks the changes and recreates them here; finds the difference between the VDOM and the template, extracts the changes and changes only the parts that need to be changed (so interracting with the DOM as few times as possible).
