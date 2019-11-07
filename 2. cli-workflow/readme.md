@@ -14,10 +14,22 @@ Things from the 'public' folder don't get compiled by webpack, so it's usually b
 
 For **environment variables**, they are overwritten based on environment and in order to be available in the client code, they must have the name convention `VUE_APP_xxx`.
 
+Build targets:
+- Vue Application (normal)
+- Vue Library (like Angular Library, use in other Vue projects)
+- Web Component (you can use it in other projects, by importing Vue and mounting it, to use in other applications [React, Angular, simple JS etc.])
+
+`vue build --target [app, lib, wc]`
+
+To use the UI of the CLI, run `vue ui` and visit the address.
+
+
 Deprecated (for Vue CLI 2): 
 Vue has multiple project templates:
 - simple: index.html + load Vue from the CDN
 - webpack-simple (usually used): buildable app, with webpack
 - webpack: complex (with testing etc)
 - browserify: not webpack but browserify
+
+
 
