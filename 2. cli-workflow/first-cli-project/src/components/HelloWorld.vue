@@ -17,6 +17,7 @@
         <h1 class="display-2 font-weight-bold mb-3">
           Welcome to Vuetify
         </h1>
+        <p>Env data: {{ envData }} </p>
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
           <br>please join our online
@@ -89,6 +90,7 @@ export default {
   name: 'HelloWorld',
 
   data: () => ({
+    envData: process.env.VUE_APP_DATA,
     ecosystem: [
       {
         text: 'vuetify-loader',
