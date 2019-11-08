@@ -8,6 +8,12 @@
 export default {
     props: {
         theText: { type: String }
+    },
+    deactivated() {
+        console.log("Exited dynamic component");
+    },
+    activated() {
+        console.log("Entered dynamic component");
     }
 }
 </script>
