@@ -5,10 +5,14 @@
     <button @click="selectedComponent='app-author'">Author</button>
     <button @click="selectedComponent='app-new'">New</button>
     <hr>
-    <!-- When the component changes, it is destroyed and then rebuilt -->
-    <component :is="selectedComponent">
-      <span slot="content">Default content</span>
-    </component>
+
+    <!-- This stops the destruction -->
+    <keep-alive>
+      <!-- When the component changes, it is destroyed and then rebuilt -->
+      <component :is="selectedComponent">
+        <span slot="content">Default content</span>
+      </component>
+    </keep-alive>
   </div>
 </template>
 
