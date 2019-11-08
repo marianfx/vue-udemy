@@ -8,7 +8,9 @@
 
 <script>
 export default {
-    props: ['name'],
+    props: {
+        name: [String, Array] // basically validations
+    },
     methods: {
         reverseName() {
             this.name = this.name.split("").reverse().join("");
