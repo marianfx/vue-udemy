@@ -10,7 +10,12 @@
 </template>
 
 <script>
+import { eventBus } from "../main";
+
 export default {
+    created() { // lifecycle
+        eventBus.$on("ageChanged", this.onNameChanged.bind(this));
+    },
     props: {
         name: {
             type: String,
@@ -30,6 +35,9 @@ export default {
         resetName() {
             this.name = "new name"; // IF THIS WOULD BE AN OBJECT, it would be reference type and will also change it in the parent component
             this.$emit('nameWasReset', this.name);
+        },
+        onNameChanged(data) {
+            this.userAge = data;
         }
     }
 }

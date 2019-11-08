@@ -1,7 +1,7 @@
 <template>
     <div class="component">
         <h1>The User Component</h1>
-        <p>I'm an awesome User! ({{ name }})</p>
+        <p>I'm an awesome User! ({{ name }}) [{{ age }}]</p>
         <hr>
         <div class="row">
             <button @click="changeName">Change my name</button>
