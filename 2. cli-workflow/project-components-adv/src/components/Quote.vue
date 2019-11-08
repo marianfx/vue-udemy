@@ -20,4 +20,10 @@ export default {
         margin: auto;
         text-align: center;
     }
+
+    /** This applies to the content passed with slot */
+    /** This can also be changed from the parent (changed behavior) */
+    h1 {
+        color: red;
+    }
 </style>
