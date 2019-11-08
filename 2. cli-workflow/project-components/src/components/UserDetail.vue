@@ -3,6 +3,7 @@
         <h3>You may view the User Details here</h3>
         <p>Name: {{ name }} </p>
         <button @click="reverseName">Reverse name</button>
+        <button @click="resetName">Reset name</button>
     </div>
 </template>
 
@@ -19,6 +20,9 @@ export default {
     methods: {
         reverseName() {
             this.name = this.name.split("").reverse().join("");
+        },
+        resetName() {
+            this.name = "new name"; // IF THIS WOULD BE AN OBJECT, it would be reference type and will also change it in the parent component
         }
     }
 }
