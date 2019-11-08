@@ -23,6 +23,7 @@ export default {
         },
         resetName() {
             this.name = "new name"; // IF THIS WOULD BE AN OBJECT, it would be reference type and will also change it in the parent component
+            this.$emit('nameWasReset', this.name);
         }
     }
 }
