@@ -2,8 +2,8 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <app-quote>
-      <h1>This is a quote</h1>
-      <p>This is the quote contents</p>
+      <h1 slot="title">This is a quote</h1>
+      <p slot="content">This is the quote contents</p>
     </app-quote>
   </div>
 </template>

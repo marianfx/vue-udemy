@@ -1,6 +1,11 @@
 <template>
     <div>
-        <slot></slot>
+        <div class="title">
+            <slot name="title"></slot>
+        </div>
+        <div class="content">
+            <slot name="content"></slot>
+        </div>
     </div>
 </template>
 
@@ -25,5 +30,9 @@ export default {
     /** This can also be changed from the parent (changed behavior) */
     h1 {
         color: red;
+    }
+
+    .title {
+        font-style: italic;
     }
 </style>
