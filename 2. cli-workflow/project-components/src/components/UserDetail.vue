@@ -9,7 +9,12 @@
 <script>
 export default {
     props: {
-        name: [String, Array] // basically validations
+        name: {
+            type: String,
+            required: true,
+            // default: "Name" OR
+            // default: function() { return {} }
+        }// basically validations
     },
     methods: {
         reverseName() {
