@@ -15,6 +15,7 @@ export default {
     methods: {
         editAge() {
             this.userAge = 30;
+            this.$emit("ageChanged", this.userAge);
         }
     }
 }

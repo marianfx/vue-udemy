@@ -16,7 +16,11 @@
 
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit :userAge="age"></app-user-edit>
+                <app-user-edit 
+                    :userAge="age"
+                    @ageChanged="age = $event" >
+                    </app-user-edit>
+                    <!-- Changing age in the parent will also change it in the other children, since it's binded --> 
             </div>
         </div>
     </div>
