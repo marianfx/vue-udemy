@@ -7,12 +7,16 @@
             <button @click="changeName">Change my name</button>
             <div class="col-xs-12 col-sm-6">
                 <!-- <app-user-detail name="Max"></app-user-detail> This is static binding with value -->
-                <app-user-detail :name="name" @nameWasReset="onNameReset" :resetFn="resetNameHere"></app-user-detail> 
+                <app-user-detail 
+                    :name="name" 
+                    :userAge="age"
+                    @nameWasReset="onNameReset" 
+                    :resetFn="resetNameHere"></app-user-detail> 
                 <!-- This is dynamic binding with v-bind -->
 
             </div>
             <div class="col-xs-12 col-sm-6">
-                <app-user-edit></app-user-edit>
+                <app-user-edit :userAge="age"></app-user-edit>
             </div>
         </div>
     </div>
@@ -25,7 +29,8 @@
     export default {
         data() {
             return {
-                name: "Maximum"
+                name: "Maximum",
+                age: 23
             }
         },
         methods: {

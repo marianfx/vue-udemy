@@ -2,6 +2,7 @@
     <div class="component">
         <h3>You may view the User Details here</h3>
         <p>Name: {{ name }} </p>
+        <p>Age: {{ userAge }} </p>
         <button @click="reverseName">Reverse name</button>
         <button @click="resetName">Reset name</button>
         <button @click="resetFn">Reset name parent</button>
@@ -17,6 +18,7 @@ export default {
             // default: "Name" OR
             // default: function() { return {} }
         }, // basically validations
+        userAge: { type: Number },
         resetFn: {
             type: Function
         }
