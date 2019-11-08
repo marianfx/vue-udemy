@@ -4,8 +4,12 @@
         <p>I'm an awesome User!</p>
         <hr>
         <div class="row">
+            <button @click="changeName">Change my name</button>
             <div class="col-xs-12 col-sm-6">
-                <app-user-detail></app-user-detail>
+                <!-- <app-user-detail name="Max"></app-user-detail> This is static binding with value -->
+                <app-user-detail :name="name"></app-user-detail> 
+                <!-- This is dynamic binding with v-bind -->
+
             </div>
             <div class="col-xs-12 col-sm-6">
                 <app-user-edit></app-user-edit>
@@ -19,6 +23,16 @@
     import UserEdit from './UserEdit.vue';
 
     export default {
+        data() {
+            return {
+                name: "Maximum"
+            }
+        },
+        methods: {
+            changeName() {
+                this.name = "Anna";
+            }
+        },
         components: {
             appUserDetail: UserDetail,
             appUserEdit: UserEdit
