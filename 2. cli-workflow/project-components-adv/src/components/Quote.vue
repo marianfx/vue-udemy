@@ -2,6 +2,11 @@
     <div>
         <div class="title">
             <slot name="title"></slot>
+            <span>
+                <slot name="subtitle">
+                    The default content of the subtitle
+                </slot>
+            </span>
         </div>
         <div class="content">
             <slot name="content"></slot>
