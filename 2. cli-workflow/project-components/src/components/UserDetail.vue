@@ -4,6 +4,7 @@
         <p>Name: {{ name }} </p>
         <button @click="reverseName">Reverse name</button>
         <button @click="resetName">Reset name</button>
+        <button @click="resetFn">Reset name parent</button>
     </div>
 </template>
 
@@ -15,7 +16,10 @@ export default {
             required: true,
             // default: "Name" OR
             // default: function() { return {} }
-        }// basically validations
+        }, // basically validations
+        resetFn: {
+            type: Function
+        }
     },
     methods: {
         reverseName() {

@@ -7,7 +7,7 @@
             <button @click="changeName">Change my name</button>
             <div class="col-xs-12 col-sm-6">
                 <!-- <app-user-detail name="Max"></app-user-detail> This is static binding with value -->
-                <app-user-detail :name="name" @nameWasReset="onNameReset"></app-user-detail> 
+                <app-user-detail :name="name" @nameWasReset="onNameReset" :resetFn="resetNameHere"></app-user-detail> 
                 <!-- This is dynamic binding with v-bind -->
 
             </div>
@@ -31,6 +31,9 @@
         methods: {
             changeName() {
                 this.name = "Anna";
+            },
+            resetNameHere() {
+                this.name = "Name reset";
             },
             onNameReset(data) {
                 this.name = data;
