@@ -1,5 +1,11 @@
 <template>
-    <div></div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+            <!-- examples of built-in directives (all are v-**) -->
+            <h1>Built-in directives</h1>
+            <p v-text="'Some simple text'"></p>
+            <p v-html="'<strong>HTML that should be sanitized before added here</strong>'"></p>
+        </div>
 </template>
 
 <script>
