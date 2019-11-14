@@ -14,7 +14,8 @@ Vue.directive('highlight', {
   // bind (el, binding, vnode) -> once directive is attached to element
   bind(el, binding, vnode) {
     // el is ElementRef
-    el.style.backgroundColor = 'green';
+    // el.style.backgroundColor = 'green';
+    el.style.backgroundColor = binding.value; // the value passed
   }
 })
 
