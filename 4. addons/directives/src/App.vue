@@ -12,13 +12,23 @@
       <h1>Custom directives</h1>
       <!-- they also have modifiers. We can create them on custom directives, it's the same how they exist in the main components -->
       <p v-highlight:background.delayed="'red'">Colored</p>
-      <p v-local-highlight:background.delayed.blink="'red'">Colored</p>
+      <p v-local-highlight:background.delayed.blink="highlightSettings">Colored</p>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      highlightSettings: {
+        mainColor: "red",
+        secondColor: "green",
+        delay: 2000,
+        blinkInterval: 500
+      }
+    };
+  },
   directives: {
     "local-highlight": {
       // bind (el, binding, vnode) -> once directive is attached to element
@@ -26,34 +36,36 @@ export default {
         // el is ElementRef
         // el.style.backgroundColor = 'green';
         // el.style.backgroundColor = binding.value; // the value passed
-        var delay = binding.modifiers["delayed"] ? 3000 : 0;
+        let value = binding.value;
+        var delay = binding.modifiers["delayed"] ? value.delay : 0;
 
         // blink modifier
-        if (binding.modifiers['blink']) {
-            let mainColor = binding.value;
-            let secondColor = 'blue';
-            let currentColor = mainColor;
-            
-            // the default delayed modifier
-            setTimeout(() => {
-                setInterval(() => {
-                    currentColor = currentColor == secondColor ? mainColor : secondColor;
-                    if (binding.arg == "background") {
-                        el.style.backgroundColor = currentColor;
-                    } else {
-                        el.style.color = currentColor;
-                    }
-                }, 1000);
-            }, delay);
+        if (binding.modifiers["blink"]) {
+          let mainColor = value.mainColor;
+          let secondColor = value.secondColor;
+          let currentColor = mainColor;
+
+          // the default delayed modifier
+          setTimeout(() => {
+            setInterval(() => {
+              currentColor =
+                currentColor == secondColor ? mainColor : secondColor;
+              if (binding.arg == "background") {
+                el.style.backgroundColor = currentColor;
+              } else {
+                el.style.color = currentColor;
+              }
+            }, value.blinkInterval);
+          }, delay);
         } else {
-            // the default delayed modifier
-            setTimeout(() => {
+          // the default delayed modifier
+          setTimeout(() => {
             if (binding.arg == "background") {
-                el.style.backgroundColor = binding.value;
+              el.style.backgroundColor = value.mainColor;
             } else {
-                el.style.color = binding.value;
+              el.style.color = value.mainColor;
             }
-            }, delay);
+          }, delay);
         }
       }
     }
