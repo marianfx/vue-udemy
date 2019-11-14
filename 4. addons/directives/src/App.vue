@@ -10,7 +10,7 @@
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
             <!-- examples of custom directives (all are v-**) -->
             <h1>Custom directives</h1>
-            <p v-highlight="'red'">Colored</p>
+            <p v-highlight:background="'red'">Colored</p>
         </div>
     </div>
 </template>
