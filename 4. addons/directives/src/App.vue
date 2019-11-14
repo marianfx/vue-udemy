@@ -10,7 +10,8 @@
         <div class="col-xs-12 col-sm-8 col-sm-offset-2">
             <!-- examples of custom directives (all are v-**) -->
             <h1>Custom directives</h1>
-            <p v-highlight:background="'red'">Colored</p>
+            <!-- they also have modifiers. We can create them on custom directives, it's the same how they exist in the main components -->
+            <p v-highlight:background.delayed="'red'">Colored</p>
         </div>
     </div>
 </template>
