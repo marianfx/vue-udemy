@@ -10,7 +10,7 @@ Vue.directive('highlight', {
   // update(el, binding, vnode, oldVnode) -> when the directive is updating (but not the component itself, it is not updated)
   // componentUpdated(el, binding, vnode, oldVnode) -> when everything has been updated
   // unbind(el, binding, vnode) -> removed from element
-  
+
   // bind (el, binding, vnode) -> once directive is attached to element
   bind(el, binding, vnode) {
     // el is ElementRef
@@ -18,14 +18,14 @@ Vue.directive('highlight', {
     // el.style.backgroundColor = binding.value; // the value passed
     var delay = binding.modifiers['delayed'] ? 3000 : 0;
     setTimeout(() => {
-    if (binding.arg == 'background') {
-      el.style.backgroundColor = binding.value;
-    } else {
-      el.style.color = binding.value;
-    }
-  }, delay);
+      if (binding.arg == 'background') {
+        el.style.backgroundColor = binding.value;
+      } else {
+        el.style.color = binding.value;
+      }
+    }, delay);
   }
-})
+});
 
 new Vue({
   render: h => h(App),
