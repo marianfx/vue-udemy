@@ -40,7 +40,8 @@
                     <textarea
                             id="message"
                             rows="5"
-                            class="form-control"></textarea>
+                            class="form-control"
+                            v-model="userData.message"></textarea>
                 </div>
             </div>
             <div class="row">
@@ -108,7 +109,7 @@
                         <p>Mail: {{ userData.email }} </p>
                         <p>Password:: {{ userData.password }} </p>
                         <p>Age:: {{ userData.age }} </p>
-                        <p>Message: </p>
+                        <p style="white-space:pre">Message: {{ userData.message }} </p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
                             <li></li>
@@ -130,7 +131,8 @@
                 userData: {
                     email: '',
                     password: '',
-                    age: 23
+                    age: 23,
+                    message: "A new text"
                 }
             }
         }
