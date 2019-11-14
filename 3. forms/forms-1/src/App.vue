@@ -88,8 +88,12 @@
                     <label for="priority">Priority</label>
                     <select
                             id="priority"
-                            class="form-control">
-                        <option></option>
+                            class="form-control"
+                            v-model="userData.selectedPriority">
+                        <option 
+                            v-for="priority in priorities" :key="priority"
+                            > {{ priority }} </option>
+                            <!-- :selected="priority == 'Medium'" alternative -->
                     </select>
                 </div>
             </div>
@@ -138,8 +142,10 @@
                     age: 23,
                     message: "A new text",
                     sendMail: [],
-                    gender: 'Male'
-                }
+                    gender: 'Male',
+                    selectedPriority: "High"
+                },
+                priorities: [ "High", "Medium", "Low"]
             }
         }
     }
