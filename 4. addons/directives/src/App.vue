@@ -12,7 +12,7 @@
       <h1>Custom directives</h1>
       <!-- they also have modifiers. We can create them on custom directives, it's the same how they exist in the main components -->
       <p v-highlight:background.delayed="'red'">Colored</p>
-      <p v-local-highlight:background.delayed="'red'">Colored</p>
+      <p v-local-highlight:background.delayed.blink="'red'">Colored</p>
     </div>
   </div>
 </template>
@@ -27,13 +27,34 @@ export default {
         // el.style.backgroundColor = 'green';
         // el.style.backgroundColor = binding.value; // the value passed
         var delay = binding.modifiers["delayed"] ? 3000 : 0;
-        setTimeout(() => {
-          if (binding.arg == "background") {
-            el.style.backgroundColor = binding.value;
-          } else {
-            el.style.color = binding.value;
-          }
-        }, delay);
+
+        // blink modifier
+        if (binding.modifiers['blink']) {
+            let mainColor = binding.value;
+            let secondColor = 'blue';
+            let currentColor = mainColor;
+            
+            // the default delayed modifier
+            setTimeout(() => {
+                setInterval(() => {
+                    currentColor = currentColor == secondColor ? mainColor : secondColor;
+                    if (binding.arg == "background") {
+                        el.style.backgroundColor = currentColor;
+                    } else {
+                        el.style.color = currentColor;
+                    }
+                }, 1000);
+            }, delay);
+        } else {
+            // the default delayed modifier
+            setTimeout(() => {
+            if (binding.arg == "background") {
+                el.style.backgroundColor = binding.value;
+            } else {
+                el.style.color = binding.value;
+            }
+            }, delay);
+        }
       }
     }
   }
