@@ -51,13 +51,15 @@
                             <input
                                     type="checkbox"
                                     id="sendmail"
-                                    value="SendMail"> Send Mail
+                                    value="SendMail"
+                                    v-model="userData.sendMail"> Send Mail
                         </label>
                         <label for="sendInfomail">
                             <input
                                     type="checkbox"
                                     id="sendInfomail"
-                                    value="SendInfoMail"> Send Infomail
+                                    value="SendInfoMail"
+                                    v-model="userData.sendMail"> Send Infomail
                         </label>
                     </div>
 
@@ -112,7 +114,7 @@
                         <p style="white-space:pre">Message: {{ userData.message }} </p>
                         <p><strong>Send Mail?</strong></p>
                         <ul>
-                            <li></li>
+                            <li v-for="item in userData.sendMail" :key="item"> {{ item }} </li>
                         </ul>
                         <p>Gender:</p>
                         <p>Priority:</p>
@@ -132,7 +134,8 @@
                     email: '',
                     password: '',
                     age: 23,
-                    message: "A new text"
+                    message: "A new text",
+                    sendMail: []
                 }
             }
         }
