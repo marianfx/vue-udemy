@@ -8,6 +8,15 @@ Vue.filter('to-lowercase', (value) => {
   return value.toLowerCase();
 });
 
+// global mixins should be used only if developping plugins or similar
+// it's added to all instances of all components (still lives in separate instances)
+// created once also for main.js. => 3 creations
+Vue.mixin({
+  created() {
+    console.log("Global mixin: created");
+  }
+})
+
 new Vue({
   render: h => h(App),
 }).$mount('#app')
