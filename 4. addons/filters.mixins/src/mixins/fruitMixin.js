@@ -11,5 +11,9 @@ export const fruitMixin = {
                 return element.match(this.filterText);
             })
         }
+    },
+    // One instance per each import (so unique)
+    created() {
+      console.log("fruitMixin: created");
     }
 };

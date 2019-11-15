@@ -14,7 +14,10 @@
 import { fruitMixin } from "./../mixins//fruitMixin";
 
 export default {
-  mixins: [ fruitMixin ]
+  mixins: [ fruitMixin ],
+  created() {
+    console.log("List.vue: created");
+  }
 };
 </script>
 
