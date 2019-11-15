@@ -107,7 +107,7 @@ import axios from 'axios';
         console.log(formData)
 
         // Note: Promises, not like observables, call the server immediately
-        axios.post("https://ng-vue.firebaseio.com/users.json", formData)
+        axios.post("/users.json", formData)
           .then((r) => {
             console.log("Finished", r);
             let newId = r.data.name;
