@@ -13,21 +13,15 @@
 
 <script>
 import ListVue from './components/List.vue';
+import { fruitMixin } from "./mixins/fruitMixin";
+
 export default {
   data() {
     return {
-      text: "Hello there!",
-      filterText: '',
-      fruits: ['Apple', 'Banana', 'Mango']
-    }
+      text: ''
+    };
   },
-  computed: {
-    filteredFruits() {
-      return this.fruits.filter((element) => {
-        return element.match(this.filterText);
-      })
-    }
-  },
+  mixins: [ fruitMixin ],
   components: {
     'app-list': ListVue
   },
