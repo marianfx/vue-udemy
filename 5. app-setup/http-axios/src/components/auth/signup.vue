@@ -69,6 +69,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
   export default {
     data () {
       return {
@@ -103,6 +105,15 @@
           terms: this.terms
         }
         console.log(formData)
+
+        // Note: Promises, not like observables, call the server immediately
+        axios.post("https://ng-vue.firebaseio.com/users.json", formData)
+          .then((r) => {
+            console.log("Finished", r);
+            let newId = r.data.name;
+          }).catch((err) => {
+            console.log(err);
+          });
       }
     }
   }
