@@ -2,6 +2,8 @@
 	<div>
 		<h3>Edit the User {{ id }}</h3>
 		<p>Local param: {{ $route.query.queryParam1 }}</p>
+        <div style="height: 700px"></div>
+        <p id="specialdata">Special data</p>
 	</div>
 </template>
 
