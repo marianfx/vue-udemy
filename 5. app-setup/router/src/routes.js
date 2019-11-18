@@ -25,5 +25,13 @@ export const routes = [
             { path: ':id', component: UserDetailComponent, props: true },
             { path: ':id/edit', component: UserEditComponent, props: true, name: 'userEdit' },
         ]
+    },
+    {
+        path: '/redirect-me',
+        redirect: '/user'
+    },
+    { 
+        // catch all routes that are not handled up until this point
+        path: '*', redirect: '/'
     }
 ];
