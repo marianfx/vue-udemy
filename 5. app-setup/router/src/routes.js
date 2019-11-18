@@ -16,7 +16,7 @@ export const routes = [
             // not use slash, as it's appended on ROOT
             { path: '', component: UserStartComponent },
             { path: ':id', component: UserDetailComponent, props: true },
-            { path: ':id/edit', component: UserEditComponent, props: true },
+            { path: ':id/edit', component: UserEditComponent, props: true, name: 'userEdit' },
         ]
     }
 ];
