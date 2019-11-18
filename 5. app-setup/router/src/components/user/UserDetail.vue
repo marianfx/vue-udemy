@@ -20,6 +20,15 @@ export default {
 	},
 	props: {
 		id: {}
-	}
+    },
+    beforeRouteEnter(to, from, next ){
+        // here no data of this component exists
+        console.log("Before Enter: inside component");
+        if (false)
+            next();
+        else
+            next(false);
+        // could use next(vm => {} ) to do something after the com is initialized
+    }
 };
 </script>

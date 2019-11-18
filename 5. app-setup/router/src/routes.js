@@ -22,7 +22,16 @@ export const routes = [
         children: [
             // not use slash, as it's appended on ROOT
             { path: '', component: UserStartComponent },
-            { path: ':id', component: UserDetailComponent, props: true },
+            { 
+                path: ':id', 
+                component: UserDetailComponent, 
+                props: true,
+                beforeEnter: (to, from, next) => {
+                    // global gets executed before this
+                    console.log("Before: User Detail");
+                    next();
+                }
+             },
             { path: ':id/edit', component: UserEditComponent, props: true, name: 'userEdit' },
         ]
     },

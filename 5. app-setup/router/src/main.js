@@ -19,9 +19,15 @@ const router = new VueRouter({
       if (to.hash) {
         return { selector: to.hash };
       }
-      
+
       return { x : 0, y : 0 };
   }
+});
+
+// generic checks, executed before each route access
+router.beforeEach((to, from, next) => {
+  console.log("Before: GLOBAL");
+  next(); // or next(path) or next (path)
 });
 
 new Vue({
