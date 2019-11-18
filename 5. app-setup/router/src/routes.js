@@ -8,6 +8,8 @@ export const routes = [
     },
     {
         path: '/user/:id',
-        component: UserComponent
+        component: UserComponent,
+        props: true // tells it to pass arguments as props
+        // props: { object / function that returns object }
     }
 ];
