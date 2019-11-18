@@ -24,7 +24,7 @@ export default {
     beforeRouteEnter(to, from, next ){
         // here no data of this component exists
         console.log("Before Enter: inside component");
-        if (false)
+        if (true)
             next();
         else
             next(false);
