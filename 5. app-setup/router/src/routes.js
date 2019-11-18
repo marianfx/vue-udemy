@@ -7,7 +7,7 @@ export const routes = [
         component: HomeComponent
     },
     {
-        path: '/user',
+        path: '/user/:id',
         component: UserComponent
     }
 ];
