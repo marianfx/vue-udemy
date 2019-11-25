@@ -23,5 +23,21 @@ export const store = new Vuex.Store({
         decrement(state) {
             state.counter --;
         }
+    },
+    actions: {
+        // recommended to use actions to commit changes. can also use async code
+        increment(context) {
+            context.commit('increment');
+        },
+        decrement(context) {
+            context.commit('decrement');
+        },
+        incrementAsync(context) {
+            setTimeout( () => { context.commit('increment'); }, 1000)
+            
+        },
+        decrementAsync(context) {
+            setTimeout( () => { context.commit('decrement'); }, 1000)
+        }
     }
 });
