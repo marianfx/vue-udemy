@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        counter: 0
+        counter: 0,
+        value: 0
     },
     getters: {
         doubleCounter(state) {
@@ -13,6 +14,9 @@ export const store = new Vuex.Store({
         },
         stringCounter(state) {
             return state.counter + " clicks";
+        },
+        value(state) {
+            return state.value;
         }
     },
     mutations: {
@@ -22,6 +26,9 @@ export const store = new Vuex.Store({
         // MUTATIONS HAVE TO BE SYNC
         decrement(state, data) {
             state.counter -= data;
+        },
+        updateValue(state, data) {
+            state.value = data;
         }
     },
     actions: {
@@ -38,6 +45,9 @@ export const store = new Vuex.Store({
         },
         decrementAsync(context, data) {
             setTimeout( () => { context.commit('decrement', data.by); }, data.time)
+        },
+        updateValue(context, data) {
+            context.commit('updateValue', data);
         }
     }
 });
