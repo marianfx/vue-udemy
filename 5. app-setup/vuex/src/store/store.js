@@ -16,8 +16,8 @@ export const store = new Vuex.Store({
         }
     },
     mutations: {
-        increment(state) {
-            state.counter ++;
+        increment(state, data) {
+            state.counter += data;
         },
         // MUTATIONS HAVE TO BE SYNC
         decrement(state) {
@@ -26,8 +26,8 @@ export const store = new Vuex.Store({
     },
     actions: {
         // recommended to use actions to commit changes. can also use async code
-        increment(context) {
-            context.commit('increment');
+        increment(context, data) {
+            context.commit('increment', data);
         },
         decrement(context) {
             context.commit('decrement');
