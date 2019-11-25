@@ -19,6 +19,7 @@ export const store = new Vuex.Store({
         increment(state) {
             state.counter ++;
         },
+        // MUTATIONS HAVE TO BE SYNC
         decrement(state) {
             state.counter --;
         }
