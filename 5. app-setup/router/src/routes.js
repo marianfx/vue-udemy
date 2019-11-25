@@ -1,9 +1,30 @@
-import UserComponent from './components/user/User.vue';
-import UserStartComponent from './components/user/UserStart.vue';
-import UserDetailComponent from './components/user/UserDetail.vue';
-import UserEditComponent from './components/user/UserEdit.vue';
 import HomeComponent from './components/Home.vue';
 import HeaderComponent from './components/Header.vue';
+
+/// userGroup is specified only if need to load all these in the same bundle
+const UserComponent = resolve => {
+    require.ensure(['./components/user/User.vue'], () => {
+        resolve(require('./components/user/User.vue'));
+    }, 'userGroup');
+}
+
+const UserStartComponent = resolve => {
+    require.ensure(['./components/user/UserStart.vue'], () => {
+        resolve(require('./components/user/UserStart.vue'));
+    }, 'userGroup');
+}
+
+const UserDetailComponent = resolve => {
+    require.ensure(['./components/user/UserDetail.vue'], () => {
+        resolve(require('./components/user/UserDetail.vue'));
+    }, 'userGroup');
+}
+
+const UserEditComponent = resolve => {
+    require.ensure(['./components/user/UserEdit.vue'], () => {
+        resolve(require('./components/user/UserEdit.vue'));
+    }, 'userGroup');
+}
 
 export const routes = [
     {
