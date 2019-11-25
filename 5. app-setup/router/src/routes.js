@@ -20,11 +20,7 @@ const UserDetailComponent = resolve => {
     }, 'userGroup');
 }
 
-const UserEditComponent = resolve => {
-    require.ensure(['./components/user/UserEdit.vue'], () => {
-        resolve(require('./components/user/UserEdit.vue'));
-    }, 'userGroup');
-}
+const UserEditComponent = () => import("./components/user/UserEdit.vue")
 
 export const routes = [
     {
