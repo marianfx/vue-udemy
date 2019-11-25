@@ -6,15 +6,10 @@
 </template>
 
 <script>
-    import { mapMutations } from 'vuex';
+    import { mapActions } from 'vuex';
     export default {
         methods: {
-            increment(by) {
-                this.$store.dispatch('increment', by);
-            },
-            decrement() {
-                this.$store.dispatch('decrement');
-            }
+            ...mapActions(['increment', 'decrement'])
         }
     }
 </script>
