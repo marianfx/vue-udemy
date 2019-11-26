@@ -12,23 +12,16 @@
 export default {
   data() {
     return {
-      email: '',
       users: []
     };
   },
+  computed: {
+    email() {
+      return this.$store.getters.user ? this.$store.getters.user.email : false;
+    }
+  },
   created() {
-    axios.get("/users.json")
-      .then((resp) => {
-        console.log(resp);
-        const data = resp.data;
-        for(let key in data) {
-          const user = data[key];
-          user.id = key;
-          this.users.push(user);
-        }
-        this.email = this.users[0].email;
-      })
-      .catch((err) => { console.log(err); });
+    this.$store.dispatch('fetchUser');
   }
 }
 </script>
