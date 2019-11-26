@@ -18,7 +18,7 @@
 </template>
 
 <script>
-    import Counter from './components/Counter.vue';
+    import Counter from './components/counter/Counter.vue';
     import Result from './components/Result.vue';
     import AnotherResultVue from './components/AnotherResult.vue';
 import AnotherCounterVue from './components/AnotherCounter.vue';

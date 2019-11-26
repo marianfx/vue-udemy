@@ -5,11 +5,5 @@
     </div>
 </template>
 
-<script>
-    import { mapActions } from 'vuex';
-    export default {
-        methods: {
-            ...mapActions(['increment', 'decrement'])
-        }
-    }
+<script src='./Counter.js'>
 </script>
