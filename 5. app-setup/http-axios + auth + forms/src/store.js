@@ -30,6 +30,20 @@ export default new Vuex.Store({
 
   },
   actions: {
+    setLogoutTimer(context, time) {
+      setTimeout(() => { context.commit('clearAuthData'); }, time * 1000);
+    },
+    saveToStorage(context, data) {
+      const expirationDate = new Date(new Date().getTime() + data.expiresIn * 1000);
+      localStorage.setItem('token', data.idToken);
+      localStorage.setItem('expirationDate', expirationDate);
+      localStorage.setItem('userId', data.localId);
+    },
+    clearStorage(context) {
+      localStorage.removeItem('token');
+      localStorage.removeItem('expirationDate');
+      localStorage.removeItem('userId');
+    },
     signUp(context, formData) {
       axios.post("/accounts:signUp?key=AIzaSyCnLAp23j7MryCVYNC2t0vpY_GFnbymrdo", {
           email: formData.email,
@@ -43,6 +57,8 @@ export default new Vuex.Store({
             userId: r.data.localId
           });
           context.dispatch('storeUser', formData);
+          context.dispatch('saveToStorage', r.data);
+          context.dispatch('setLogoutTimer', r.data.expiresIn);
         }).catch((err) => {
           console.log(err);
         });
@@ -59,14 +75,29 @@ export default new Vuex.Store({
             token: r.data.idToken,
             userId: r.data.localId
           });
+          localStorage.setItem('token', r.data.idToken);
+          context.dispatch('saveToStorage', r.data);
+          context.dispatch('setLogoutTimer', r.data.expiresIn);
           router.push('/dashboard');
         }).catch((err) => {
           console.log(err);
         });
     },
+    tryAutoLogin(context) {
+      const token = localStorage.getItem('token');
+      if (!token) return;
+
+      const expirationDate = localStorage.getItem('expirationDate');
+      if (new Date() >= expirationDate) return;
+
+      const userId = localStorage.getItem('userId');
+      context.commit('authUser', { token: token, userId: userId });
+      router.push('/dashboard');
+    },
     logout(context) {
       context.commit('clearAuthData');
       router.replace('/signin');
+      context.dispatch('clearStorage');
     },
     storeUser(context, user) {
       if (!context.state.idToken) return;
