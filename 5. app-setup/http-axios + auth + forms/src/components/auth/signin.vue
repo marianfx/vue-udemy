@@ -39,17 +39,8 @@ import axios from './../../axios-auth';
           email: this.email,
           password: this.password,
         }
-        console.log(formData)
-        axios.post("/accounts:signInWithPassword?key=AIzaSyCnLAp23j7MryCVYNC2t0vpY_GFnbymrdo", {
-          email: formData.email,
-          password: formData.password,
-          returnSecureToken: true
-        })
-          .then((r) => {
-            console.log("Finished", r);
-          }).catch((err) => {
-            console.log(err);
-          });
+        console.log(formData);
+        this.$store.dispatch('login', formData);
       }
     }
   }

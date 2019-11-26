@@ -107,17 +107,7 @@ import axios from './../../axios-auth';
         console.log(formData)
 
         // Note: Promises, not like observables, call the server immediately
-        axios.post("/accounts:signUp?key=AIzaSyCnLAp23j7MryCVYNC2t0vpY_GFnbymrdo", {
-          email: formData.email,
-          password: formData.password,
-          returnSecureToken: true
-        })
-          .then((r) => {
-            console.log("Finished", r);
-            let newId = r.data.name;
-          }).catch((err) => {
-            console.log(err);
-          });
+        this.$store.dispatch('signUp', formData);
       }
     }
   }
