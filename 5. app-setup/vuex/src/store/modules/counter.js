@@ -4,6 +4,9 @@ const state = {
     counter: 0
 };
 
+// FOR NAMESPACE CAN ALSO USE AUTONAMESPACE (NEW FEATURE)
+// https://github.com/vuejs/vuex/releases/tag/v2.1.0
+
 const getters = {
     [types.DOUBLE_COUNTER]: (state) => {
         return state.counter * 2;
