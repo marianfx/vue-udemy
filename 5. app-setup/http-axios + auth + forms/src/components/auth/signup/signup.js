@@ -1,4 +1,5 @@
 import axios from './../../../axios-auth';
+import { required, email } from 'vuelidate/lib/validators'
 
 export default {
     data() {
@@ -37,6 +38,12 @@ export default {
 
             // Note: Promises, not like observables, call the server immediately
             this.$store.dispatch('signUp', formData);
+        }
+    },
+    validations: {
+        email: { // name is important !
+            required: required, // first name could be anything
+            email: email
         }
     }
 }
