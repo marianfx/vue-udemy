@@ -1,5 +1,5 @@
 import axios from './../../../axios-auth';
-import { required, email, numeric, minValue, minLength, sameAs } from 'vuelidate/lib/validators'
+import { required, email, numeric, minValue, minLength, sameAs, requiredUnless } from 'vuelidate/lib/validators'
 
 export default {
     data() {
@@ -59,6 +59,19 @@ export default {
             sameAs: sameAs(vm => {
                 return vm.password;
             })
+        },
+        terms: {
+            required
+        },
+        hobbyInputs: {
+            required,
+            minLength: minLength(1),
+            $each: {
+                value: { // prop name from array element
+                    required,
+                    minLength: minLength(6)
+                }
+            }
         }
     }
 }

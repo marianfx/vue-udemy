@@ -51,19 +51,25 @@
           <div class="hobby-list">
             <div
                     class="input"
+                    :class="{ invalid: $v.hobbyInputs.$each[index].value.$error }"
                     v-for="(hobbyInput, index) in hobbyInputs"
                     :key="hobbyInput.id">
               <label :for="hobbyInput.id">Hobby #{{ index }}</label>
               <input
                       type="text"
                       :id="hobbyInput.id"
+                      @blur="$v.hobbyInputs.$each[index].value.$touch()"
                       v-model="hobbyInput.value">
               <button @click="onDeleteHobby(hobbyInput.id)" type="button">X</button>
+              <p v-if="!$v.hobbyInputs.minLength">Hobbies required</p>
             </div>
           </div>
         </div>
-        <div class="input inline">
-          <input type="checkbox" id="terms" v-model="terms">
+        <div class="input inline" :class="{ invalid: $v.terms.$invalid }">
+          <input type="checkbox" 
+                id="terms" 
+                @blur="$v.terms.$touch()"
+                v-model="terms">
           <label for="terms">Accept Terms of Use</label>
         </div>
         <div class="submit">
