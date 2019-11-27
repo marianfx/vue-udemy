@@ -1,5 +1,5 @@
 import axios from './../../../axios-auth';
-import { required, email } from 'vuelidate/lib/validators'
+import { required, email, numeric, minValue } from 'vuelidate/lib/validators'
 
 export default {
     data() {
@@ -41,9 +41,14 @@ export default {
         }
     },
     validations: {
-        email: { // name is important !
+        email: { // name is important, because it binds to data property named 'email' !
             required: required, // first name could be anything
             email: email
+        },
+        age: {
+            required: required,
+            numeric: numeric,
+            minValue: minValue(18)
         }
     }
 }

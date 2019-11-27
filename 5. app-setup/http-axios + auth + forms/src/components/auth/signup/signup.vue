@@ -11,12 +11,14 @@
                   @blur="$v.email.$touch()">
           <p v-if="!$v.email.email"> Please provide a valid e-mail</p>
         </div>
-        <div class="input">
+        <div class="input" :class="{ invalid: $v.age.$error }">
           <label for="age">Your Age</label>
           <input
                   type="number"
                   id="age"
+                  @blur="$v.age.$touch()"
                   v-model.number="age">
+          <p v-if="!$v.email.minValue">You have to be at least {{ $v.age.$params.minValue.min }} years old.</p>
         </div>
         <div class="input">
           <label for="password">Password</label>
