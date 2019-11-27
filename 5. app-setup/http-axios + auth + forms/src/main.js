@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import axios from 'axios';
+import Vuelidate from 'vuelidate';
 
 Vue.config.productionTip = false
 
@@ -26,6 +27,8 @@ const respInterceptorId = axios.interceptors.response.use(response => {
 // how to remove interceptors
 // axios.interceptors.request.eject(reqInterceptorId);
 // axios.interceptors.request.eject(respInterceptorId);
+
+Vue.use(Vuelidate);
 
 new Vue({
   router,
