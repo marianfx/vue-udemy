@@ -8,7 +8,7 @@
                   type="email"
                   id="email"
                   v-model="email"
-                  @input="$v.email.$touch()">
+                  @blur="$v.email.$touch()">
           <p v-if="!$v.email.email"> Please provide a valid e-mail</p>
         </div>
         <div class="input">
