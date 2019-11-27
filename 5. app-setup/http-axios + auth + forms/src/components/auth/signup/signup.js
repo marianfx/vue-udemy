@@ -1,5 +1,5 @@
 import axios from './../../../axios-auth';
-import { required, email, numeric, minValue } from 'vuelidate/lib/validators'
+import { required, email, numeric, minValue, minLength, sameAs } from 'vuelidate/lib/validators'
 
 export default {
     data() {
@@ -49,6 +49,16 @@ export default {
             required: required,
             numeric: numeric,
             minValue: minValue(18)
+        },
+        password: {
+            required, 
+            minLength: minLength(6)
+        },
+        confirmPassword: {
+            // sameAs: sameAs('password') // same as property in vue instance
+            sameAs: sameAs(vm => {
+                return vm.password;
+            })
         }
     }
 }
