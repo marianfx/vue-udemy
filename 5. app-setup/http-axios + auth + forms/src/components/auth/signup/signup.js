@@ -43,7 +43,11 @@ export default {
     validations: {
         email: { // name is important, because it binds to data property named 'email' !
             required: required, // first name could be anything
-            email: email
+            email: email,
+            unique: (val) => {
+                // return true / false
+                return val !== 'test@test.com';
+            }
         },
         age: {
             required: required,
