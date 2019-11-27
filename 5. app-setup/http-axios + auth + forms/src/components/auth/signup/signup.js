@@ -46,7 +46,11 @@ export default {
             email: email,
             unique: (val) => {
                 // return true / false
-                return val !== 'test@test.com';
+                if (val === '') return true;
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => resolve( val !== 'test@test.com'), 1000);
+                    // or resolve (false)
+                });
             }
         },
         age: {
