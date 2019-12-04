@@ -8,7 +8,7 @@
     <p> {{ getRandomNumber() }} -> {{ getRandomIntNumber() }} </p>
     <!-- 4) Search any image on Google and output it here by binding the "src" attribute -->
     <div>
-        <img style="width:100px;height:100px">
+        <img style="width:100px;height:100px" :src="imageUrl">
     </div>
     <!-- 5) Pre-Populate this input with your name (set the "value" attribute) -->
     <div>
@@ -23,7 +23,8 @@
     data() {
       return {
         name: "Laurentiu",
-        age: '19'
+        age: '19',
+        imageUrl: "https://images.unsplash.com/photo-1518599904199-0ca897819ddb?ixlib=rb-1.2.1&auto=format&fit=crop&w=428&h=214&q=60"
       }
     },
     computed: {
